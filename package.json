@@ -1,0 +1,23 @@
+{
+  "name": "laboratorionosql",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Laboratorio NoSQL con MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Marcelo Bravo",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "laboratorionosql": "file:",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
