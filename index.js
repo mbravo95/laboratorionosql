@@ -10,7 +10,7 @@ app.use(express.json());
 
 dotenv.config();
 
-conectarDB();
+conectarDB()
 
 app.use('/api', historialMedicoRoutes);
 
