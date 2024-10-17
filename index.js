@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import historialMedicoRoutes from './routes/historialMedicoRoutes.js'
+import historialMedicoRoutes from './routes/historialMedicoRoutes.js';
+import conectarDB from './config/db.js';
 
 
 const app = express();
@@ -8,6 +9,8 @@ const app = express();
 app.use(express.json());
 
 dotenv.config();
+
+conectarDB();
 
 app.use('/api', historialMedicoRoutes);
 
