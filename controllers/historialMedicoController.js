@@ -1,4 +1,5 @@
 import Paciente from "../models/Paciente.js";
+import RegistroMedico from "../models/RegistroMedico.js";
 
 const registrarPaciente = async (req, res) => {
     const { cedula } = req.body;
@@ -13,16 +14,33 @@ const registrarPaciente = async (req, res) => {
     try {
         const paciente = new Paciente(req.body);
         const pacienteGuardado = await paciente.save();
-        res.json(pacienteGuardado);
+        res.json({paciente: pacienteGuardado});
     } catch (error) {
         console.log(error);
+        const errorResp = new Error('Error interno');
+        return res.status(500).json({msg: errorResp.message});
     }
-
-    res.json({msg: "registrarPaciente => Funcion sin implementar"});
 }
 
-const guardarRegistroMedico = (req, res) => {
-    res.json({msg: "guardarRegistroMedico => Funcion sin implementar"});
+const guardarRegistroMedico = async (req, res) => {
+    const { cedula_paciente } = req.body;
+
+    const existePaciente = await Paciente.findOne({cedula: cedula_paciente});
+
+    if(!existePaciente){
+        const error = new Error('No existe un paciente con la cédula aportada como parámetro');
+        return res.status(402).json({msg: error.message});
+    }
+    const registroMedico = new RegistroMedico(req.body);
+    registroMedico.paciente = existePaciente._id;
+    try {
+        const registroGuardado = await registroMedico.save();
+        res.json({registroMedico: registroGuardado})
+    } catch (error) {
+        console.log(error);
+        const errorResp = new Error('Error interno');
+        return res.status(500).json({msg: errorResp.message});
+    }
 }
 
 const consultarHistorialMedico = (req, res) => {
