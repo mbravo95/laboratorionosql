@@ -59,12 +59,30 @@ const consultarHistorialMedico = async (req, res) => {
     const historialPaciente = await RegistroMedico.find({paciente: existePaciente._id})
         .sort({fechaAlta: -1})
         .skip(salto)
-        .limit(limiteInt);
+        .limit(limiteInt)
+        .select("-_id -__v");
     res.json({historialPaciente, total: historialPaciente.length});
 }
 
-const obtenerRegistrosPorCriterio = (req, res) => {
-    res.json({msg: "obtenerRegistrosPorCriterio => Funcion sin implementar"});
+const obtenerRegistrosPorCriterio = async (req, res) => {
+    const {tipo, diagnostico, medico, institucion} = req.body;
+    
+    let listadoBusqueda = await RegistroMedico.find()
+        .select("-_id -__v");
+    
+    if(tipo !== ''){
+        listadoBusqueda = listadoBusqueda.filter(registro => registro.tipo === tipo);
+    }
+    if(diagnostico !== ''){
+        listadoBusqueda = listadoBusqueda.filter(registro => registro.diagnostico === diagnostico);
+    }
+    if(medico !== ''){
+        listadoBusqueda = listadoBusqueda.filter(registro => registro.medico === medico);
+    }
+    if(institucion !== ''){
+        listadoBusqueda = listadoBusqueda.filter(registro => registro.institucion === institucion);
+    }
+    res.json({resultado: listadoBusqueda, total: listadoBusqueda.length});
 }
 
 
