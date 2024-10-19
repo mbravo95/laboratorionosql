@@ -43,8 +43,24 @@ const guardarRegistroMedico = async (req, res) => {
     }
 }
 
-const consultarHistorialMedico = (req, res) => {
-    res.json({msg: "consultarHistorialMedico => Funcion sin implementar"});
+const consultarHistorialMedico = async (req, res) => {
+    const {cedula, pagina, limite} = req.params;
+    const existePaciente = await Paciente.findOne({cedula});
+
+    if(!existePaciente){
+        const error = new Error('No existe un paciente con la cédula aportada como parámetro');
+        return res.status(402).json({msg: error.message});
+    }
+
+    const paginaInt = parseInt(pagina);
+    const limiteInt = parseInt(limite);
+    const salto = (paginaInt - 1) * limiteInt;
+
+    const historialPaciente = await RegistroMedico.find({paciente: existePaciente._id})
+        .sort({fechaAlta: -1})
+        .skip(salto)
+        .limit(limiteInt);
+    res.json({historialPaciente, total: historialPaciente.length});
 }
 
 const obtenerRegistrosPorCriterio = (req, res) => {

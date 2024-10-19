@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/paciente', registrarPaciente);
 router.post('/registro-medico', guardarRegistroMedico);
-router.get('/consulta/:cedula', consultarHistorialMedico);
+router.get('/consulta/:cedula/:pagina/:limite', consultarHistorialMedico);
 router.get('/busqueda', obtenerRegistrosPorCriterio);
 
 
