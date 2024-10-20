@@ -66,22 +66,24 @@ const consultarHistorialMedico = async (req, res) => {
 
 const obtenerRegistrosPorCriterio = async (req, res) => {
     const {tipo, diagnostico, medico, institucion} = req.body;
-    
-    let listadoBusqueda = await RegistroMedico.find()
-        .select("-_id -__v");
-    
+
+    const query = {};
+
     if(tipo !== ''){
-        listadoBusqueda = listadoBusqueda.filter(registro => registro.tipo === tipo);
+        query.tipo = tipo;
     }
     if(diagnostico !== ''){
-        listadoBusqueda = listadoBusqueda.filter(registro => registro.diagnostico === diagnostico);
+        query.diagnostico = diagnostico;
     }
     if(medico !== ''){
-        listadoBusqueda = listadoBusqueda.filter(registro => registro.medico === medico);
+        query.medico = medico;
     }
     if(institucion !== ''){
-        listadoBusqueda = listadoBusqueda.filter(registro => registro.institucion === institucion);
+        query.institucion = institucion;
     }
+
+    let listadoBusqueda = await RegistroMedico.find(query)
+        .select("-_id -__v");
     res.json({resultado: listadoBusqueda, total: listadoBusqueda.length});
 }
 
