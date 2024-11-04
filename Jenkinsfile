@@ -11,10 +11,5 @@ pipeline {
                 sh 'npm run test' 
             }
         }
-        stage('Dev') { 
-            steps {
-                sh 'npm run dev' 
-            }
-        }
     }
 }
