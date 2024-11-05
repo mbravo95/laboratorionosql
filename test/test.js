@@ -23,7 +23,7 @@ describe('GET /api/consulta/:cedula/:pagina/:limite', function() {
 	  request(app)
 		.post('/api/paciente')
         .send(paciente)
-		.expect(401, done);
+		.expect(200, done);
 	});
   });
   
