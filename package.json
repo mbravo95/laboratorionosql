@@ -16,7 +16,9 @@
     "express": "^4.21.1",
     "laboratorionosql": "file:",
     "mongodb": "^6.9.0",
-    "mongoose": "^8.7.1"
+    "mongoose": "^8.7.1",
+    "redis": "^4.7.0",
+    "response-time": "^2.3.3"
   },
   "devDependencies": {
     "mocha": "^10.8.2",
