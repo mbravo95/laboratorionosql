@@ -6,7 +6,7 @@ Proyecto realizado en NodeJS que se conecta a una base NoSQL de tipo MongoDB
 
 ## API Requests
 
-#### Agregar un paciente
+#### Agregar un nuevo paciente
 
 ```http
   POST /api/paciente
