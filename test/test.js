@@ -5,10 +5,18 @@ import app from '../index.js';
 describe('GET /api/consulta/:cedula/:pagina/:limite', function() {
 	it('Consultar historial medico paginado', function(done) {
 	  request(app)
-		.get('/api/consulta/46810370/1/1')
+		.get('/api/consulta/16449135/5/10')
 		.expect(200, done);
 	});
   });
+
+  describe('GET /api/consulta-cache/:cedula/:pagina/:limite', function() {
+    it('Consultar historial medico paginado con cache', function(done) {
+      request(app)
+      .get('/api/consulta/16449135/5/10')
+      .expect(200, done);
+    });
+    });
 
   
   describe('POST /api/paciente', function() {
