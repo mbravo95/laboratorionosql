@@ -7,13 +7,13 @@ Proyecto realizado en NodeJS que se conecta a una base NoSQL de tipo MongoDB
 
 #### Antes que nada para correr el proyecto se deberá descargar las dependencias
 
-```http
+```
   npm install
 ```
 
 #### Luego se deberá crear un fichero .env en la carpeta raíz con las variables de ambiente
 
-```http
+```
   MONGODB_URL=***
   REDIS_URL=***
 ```
@@ -25,15 +25,30 @@ Proyecto realizado en NodeJS que se conecta a una base NoSQL de tipo MongoDB
 
 #### Para correr el proyecto en el entorno de desarrollo
 
-```http
+```
   npm run dev
 ```
 
 #### Para correr las pruebas del proyecto
 
-```http
+```
   npm run test
 ```
+
+## Ejecución de proyecto en Docker
+
+#### Para generar la imagen
+
+```
+  docker build -t labnode .
+```
+
+#### Para correr la imagen en un contenedor
+
+```
+  docker run -d --env-file ./envDocker.list -p 5000:5000 labnode
+```
+Donde envDocker.list es el archivo donde se guardan las variables de ambiente con el mismo formato que el .env
 
 ## API Requests
 
