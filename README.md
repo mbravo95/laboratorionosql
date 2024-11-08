@@ -66,11 +66,11 @@ Donde envDocker.list es el archivo donde se guardan las variables de ambiente co
 
 ```
 {
-    "cedula": "16449135",
-    "nombre": "Silvia",
-    "apellido": "Sugo",
-    "fechaNacimiento": "1959-07-12",
-    "sexo": "Femenino"
+    "cedula": "44456351",
+    "nombre": "Carlos",
+    "apellido": "Perez",
+    "fechaNacimiento": "2000-01-18",
+    "sexo": "Masculino"
 }
 ```
 
@@ -92,9 +92,9 @@ Donde envDocker.list es el archivo donde se guardan las variables de ambiente co
     "fechaAlta": "2024-10-01 14:00:00",
     "tipo": "Examen",
     "diagnostico": "Analisis de Sangre",
-    "medico": "Miguel Merentiel",
-    "institucion": "Casmu",
-    "cedula_paciente": "16449135"
+    "medico": "Miguel Lopez",
+    "institucion": "Hospital General",
+    "cedula_paciente": "44456351"
 }
 ```
 
@@ -144,7 +144,7 @@ Donde envDocker.list es el archivo donde se guardan las variables de ambiente co
     "tipo":"", 
     "diagnostico":"", 
     "medico":"", 
-    "institucion":"Casmu"
+    "institucion":"Hospital General"
 }
 ```
 
