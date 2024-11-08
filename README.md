@@ -3,6 +3,37 @@
 
 Proyecto realizado en NodeJS que se conecta a una base NoSQL de tipo MongoDB
 
+## Ejecución de proyecto
+
+#### Antes que nada para correr el proyecto se deberá descargar las dependencias
+
+```http
+  npm install
+```
+
+#### Luego se deberá crear un fichero .env en la carpeta raíz con las variables de ambiente
+
+```http
+  MONGODB_URL=***
+  REDIS_URL=***
+```
+
+| Parametro | Descripcion                       |
+| :-------- | :-------------------------------- |
+| `MONGODB_URL`      | URL de conexión a la base MongoDB |
+| `REDIS_URL`      | URL de conexión a la base Redis |
+
+#### Para correr el proyecto en el entorno de desarrollo
+
+```http
+  npm run dev
+```
+
+#### Para correr las pruebas del proyecto
+
+```http
+  npm run test
+```
 
 ## API Requests
 
