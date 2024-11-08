@@ -53,6 +53,20 @@ Proyecto realizado en NodeJS que se conecta a una base NoSQL de tipo MongoDB
 ```
 
 
+#### Consultar historial medico con cache
+
+```http
+  GET /api/consulta-cache/{cedula}/{pagina}/{limite}
+```
+
+| Parametro | Tipo     | Descripcion                       |
+| :-------- | :------- | :-------------------------------- |
+| `cedula`      | `string` | **Requerido**. Cedula del paciente |
+| `pagina`      | `int` | Pagina que se desea mostrar |
+| `limite`      | `int` | Cantidad de registros a desplegar por pagina |
+
+
+
 #### Consultar historial medico
 
 ```http
@@ -64,6 +78,7 @@ Proyecto realizado en NodeJS que se conecta a una base NoSQL de tipo MongoDB
 | `cedula`      | `string` | **Requerido**. Cedula del paciente |
 | `pagina`      | `int` | Pagina que se desea mostrar |
 | `limite`      | `int` | Cantidad de registros a desplegar por pagina |
+
 
 
 #### Obtener registros por criterio
